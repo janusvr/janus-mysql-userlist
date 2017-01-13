@@ -34,7 +34,7 @@ function Plugin(server) {
     this._server = server;
 
     this._conn.query(create_users_query, function(err, results) {
-        if(err != null) throw new Error(err);
+        if(err != null) console.log(err);
         if(results.warningCount == 0) log.info("Created `users` table.");
     });
 
