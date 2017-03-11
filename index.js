@@ -57,9 +57,9 @@ Plugin.prototype.call = function() {
              delete this._server._userList[u];
              continue;
         }
-
-        query = "INSERT INTO `users` (`userId`, `updated_at`, `roomId`) VALUES (?, NOW(), ?) ON DUPLICATE KEY UPDATE `updated_at` = NOW(), `roomId` = ?;";
-        inserts = [u, users[u].roomId, users[u].roomId];
+        var ip = ""; // TODO
+        query = "INSERT INTO `users` (`userId`, `updated_at`, `roomId`, `ip`) VALUES (?, NOW(), ?, ?) ON DUPLICATE KEY UPDATE `updated_at` = NOW(), `roomId` = ?;";
+        inserts = [u, users[u].roomId, users[u].roomId, ip];
         sql = mysql.format(query, inserts);
 
         this._conn.query(sql, function(err, results) {
