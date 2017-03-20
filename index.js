@@ -13,7 +13,7 @@ var create_users_query = "CREATE TABLE IF NOT EXISTS `users` (";
     create_users_query+= "  `client_version` varchar(32),";
     create_users_query+= "  `roomId` varchar(64) NOT NULL,";
     create_users_query+= "  `created_at` timestamp default now(),";
-    create_users_query+= "  `updated_at` timestamp";
+    create_users_query+= "  `updated_at` timestamp default '1970-01-01'";
     create_users_query+= ")";
 
 var mysql  = require('mysql');
